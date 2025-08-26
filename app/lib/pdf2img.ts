@@ -1,5 +1,3 @@
-
-
 export interface PdfConversionResult {
     imageUrl: string;
     file: File | null;
@@ -77,11 +75,11 @@ export async function convertPdfToImage(
                 1.0
             ); // Set quality to maximum (1.0)
         });
-    } catch (err) {-
-        console.error("PDF conversion error:", err);
-    return {
-        imageUrl: "",
-        file: null,
-        error: `Failed to convert PDF: ${err}`,
-    };
-    }}
+    } catch (err) {
+        return {
+            imageUrl: "",
+            file: null,
+            error: `Failed to convert PDF: ${err}`,
+        };
+    }
+}
